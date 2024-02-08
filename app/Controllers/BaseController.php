@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use Config\Services; // Add the services namespace 
 
 /**
  * Class BaseController
@@ -36,6 +37,7 @@ abstract class BaseController extends Controller
      * @var array
      */
     protected $helpers = [];
+    protected $twig;
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
@@ -54,5 +56,7 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+
+        // $this->twig = Services::twig(); // call the twig service you just created
     }
 }

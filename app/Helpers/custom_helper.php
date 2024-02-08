@@ -17,3 +17,15 @@ if (!function_exists('custom_function')) {
         return 'Custom helper function called with parameter: ' . $param;
     }
 }
+
+
+if (!function_exists('module_url'))
+{
+    function module_url($path) {
+        return SYSTEMPATH;
+        return ROOTPATH.$path;
+    }
+}
+
+
+

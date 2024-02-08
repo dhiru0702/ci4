@@ -29,4 +29,20 @@ class Services extends BaseService
      *     return new \CodeIgniter\Example();
      * }
      */
+
+     public static function twig($viewDir = null, $getShared = true)
+     {
+         if ($getShared) {
+             return static::getSharedInstance('twig', $viewDir);
+         }
+ 
+         $appPaths = new \Config\Paths();
+         $appViewPaths = $viewDir ?? $appPaths->viewDirectory;
+ 
+         $loader = new \Twig\Loader\FilesystemLoader($appViewPaths);
+ 
+         return new \Twig\Environment($loader, [
+             'cache' => WRITEPATH.'/cache/twig',
+         ]);
+     }
 }
